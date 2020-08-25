@@ -17,7 +17,8 @@ import pandas as pd
 import seaborn as sns
 from eli5.sklearn import PermutationImportance
 from keras import backend as K
-from keras.callbacks import TensorBoard, callbacks, ModelCheckpoint
+from keras.callbacks import TensorBoard, ModelCheckpoint
+import keras.callbacks as callbacks
 from keras.layers import Concatenate, Dense, Dropout, Input, Layer
 from keras.layers.normalization import BatchNormalization
 from keras.models import Model, Sequential
@@ -677,11 +678,19 @@ class Model_Sequential_Flat(Model_Sequential_Base):
         """ Compile model, function to be changed in the future."""
         # Add layers
         # input
+        is_list = False
+        if type(self.model_hypers["nodes"])==list :
+            is_list = True
         for layer in range(self.model_hypers["layers"]):
+            node = None
+            if is_list :
+                node = int(self.model_hypers["nodes"][layer])
+            else :
+                node = self.model_hypers["nodes"]
             if layer == 0:
                 self.model.add(
                     Dense(
-                        self.model_hypers["nodes"],
+                        node,
                         kernel_initializer="glorot_uniform",
                         activation="relu",
                         input_dim=self.model_input_dim,
@@ -690,7 +699,7 @@ class Model_Sequential_Flat(Model_Sequential_Base):
             else:
                 self.model.add(
                     Dense(
-                        self.model_hypers["nodes"],
+                        node,
                         kernel_initializer="glorot_uniform",
                         activation="relu",
                     )
@@ -724,3 +733,4 @@ class Model_Sequential_Flat(Model_Sequential_Base):
             weighted_metrics=weighted_metrics,
         )
         self.model_is_compiled = True
+        print(self.model.summary())

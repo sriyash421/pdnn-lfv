@@ -848,7 +848,10 @@ class job_executor(object):
         self.try_parse_str("model_name", config, "model", "model_name")
         self.try_parse_str("model_class", config, "model", "model_class")
         self.try_parse_int("layers", config, "model", "layers")
-        self.try_parse_int("nodes", config, "model", "nodes")
+        try :
+            self.try_parse_list("nodes", config, "model", "nodes")
+        except :
+            self.try_parse_int("nodes", config, "model", "nodes")
         self.try_parse_float("dropout_rate", config, "model", "dropout_rate")
         self.try_parse_float("momentum", config, "model", "momentum")
         self.try_parse_bool("nesterov", config, "model", "nesterov")

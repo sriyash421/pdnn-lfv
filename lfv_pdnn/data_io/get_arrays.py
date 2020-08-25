@@ -44,10 +44,10 @@ def get_npy_individuals(
                 for feature in selected_features + [channel, "weight"]:
                     temp_array1 = np.load(
                         directory
-                        + "/mc16a"
+                        + "/MC16a"
                         + "/"
-                        + npy_prefix
-                        + "_"
+                        # + npy_prefix
+                        # + "_"
                         + npy
                         + "_"
                         + feature
@@ -56,10 +56,10 @@ def get_npy_individuals(
                     temp_array1 = np.reshape(temp_array1, (-1, 1))
                     temp_array2 = np.load(
                         directory
-                        + "/mc16d"
+                        + "/MC16d"
                         + "/"
-                        + npy_prefix
-                        + "_"
+                        # + npy_prefix
+                        # + "_"
                         + npy
                         + "_"
                         + feature
@@ -68,10 +68,10 @@ def get_npy_individuals(
                     temp_array2 = np.reshape(temp_array2, (-1, 1))
                     temp_array3 = np.load(
                         directory
-                        + "/mc16e"
+                        + "/MC16e"
                         + "/"
-                        + npy_prefix
-                        + "_"
+                        # + npy_prefix
+                        # + "_"
                         + npy
                         + "_"
                         + feature
@@ -91,8 +91,8 @@ def get_npy_individuals(
                     temp_array = np.load(
                         directory
                         + "/"
-                        + npy_prefix
-                        + "_"
+                        # + npy_prefix
+                        # + "_"
                         + npy
                         + "_"
                         + feature
@@ -108,7 +108,7 @@ def get_npy_individuals(
             npy_array = None
             for feature in selected_features + [channel, "weight"]:
                 temp_array = np.load(
-                    directory + "/" + npy_prefix + "_" + npy + "_" + feature + ".npy"
+                    directory + "/" + npy + "_" + feature + ".npy"
                 )
                 temp_array = np.reshape(temp_array, (-1, 1))
                 if npy_array is None:
@@ -126,10 +126,10 @@ def get_npy_individuals(
                     for feature in cut_features:
                         temp_array1 = np.load(
                             directory
-                            + "/mc16a"
+                            + "/MC16a"
                             + "/"
-                            + npy_prefix
-                            + "_"
+                            # + npy_prefix
+                            # + "_"
                             + npy
                             + "_"
                             + feature
@@ -138,10 +138,10 @@ def get_npy_individuals(
                         temp_array1 = np.reshape(temp_array1, (-1, 1))
                         temp_array2 = np.load(
                             directory
-                            + "/mc16d"
+                            + "/MC16d"
                             + "/"
-                            + npy_prefix
-                            + "_"
+                            # + npy_prefix
+                            # + "_"
                             + npy
                             + "_"
                             + feature
@@ -150,10 +150,10 @@ def get_npy_individuals(
                         temp_array2 = np.reshape(temp_array2, (-1, 1))
                         temp_array3 = np.load(
                             directory
-                            + "/mc16e"
+                            + "/MC16e"
                             + "/"
-                            + npy_prefix
-                            + "_"
+                            # + npy_prefix
+                            # + "_"
                             + npy
                             + "_"
                             + feature
@@ -173,8 +173,8 @@ def get_npy_individuals(
                         temp_array = np.load(
                             directory
                             + "/"
-                            + npy_prefix
-                            + "_"
+                            # + npy_prefix
+                            # + "_"
                             + npy
                             + "_"
                             + feature
@@ -192,8 +192,8 @@ def get_npy_individuals(
                     temp_array = np.load(
                         directory
                         + "/"
-                        + npy_prefix
-                        + "_"
+                        # + npy_prefix
+                        # + "_"
                         + npy
                         + "_"
                         + feature

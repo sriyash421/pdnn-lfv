@@ -22,3 +22,4 @@ def execute():
         print("#" * 80)
         print("Done!")
         print("#" * 80)
+execute()
